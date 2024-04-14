@@ -3,7 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const now = new Date();
+  const [now, setNow] = React.useState(new Date());
+  React.useEffect(() => {
+    setTimeout(() => {
+      setNow(new Date());
+    }, 5000);
+  }, [now, setNow]);
 
   const day = now.getDay();
   const isWeekend = day == 0 || day == 6;
